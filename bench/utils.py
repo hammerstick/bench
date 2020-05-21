@@ -307,9 +307,7 @@ def exec_cmd(cmd, cwd='.'):
 	cmd_log = "{0}{1}".format(cwd_info, cmd)
 	logger.debug(cmd_log)
 	cmd = shlex.split(cmd)
-	return_code = subprocess.call(cmd, cwd=cwd, universal_newlines=True)
-	if return_code:
-		logger.warning("{0} executed with exit code {1}".format(cmd_log, return_code))
+	subprocess.call(cmd, cwd=cwd, universal_newlines=True)
 
 
 def which(executable, raise_err = False):
